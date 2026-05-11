@@ -494,8 +494,8 @@ export default function CheckoutPage() {
                     <div key={item.product.id} className="flex items-center gap-3">
                       <div className="w-14 h-14 rounded-xl overflow-hidden bg-[var(--surface-2)] flex-shrink-0 relative">
                         <Image
-                          src={item.product.image_link || "https://placehold.co/56x56"}
-                          alt={item.product.name}
+                          src={item.product.thumbnail || "https://placehold.co/56x56"}
+                          alt={item.product.title}
                           fill
                           className="object-cover"
                           sizes="56px"
@@ -503,14 +503,14 @@ export default function CheckoutPage() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-[var(--text)] line-clamp-1">
-                          {item.product.name}
+                          {item.product.title}
                         </p>
                         <p className="text-xs text-[var(--text-muted)]">
                           x{item.quantity}
                         </p>
                       </div>
                       <p className="text-sm font-bold text-[#7c3d12] flex-shrink-0">
-                        {formatCurrency(parseFloat(item.product.price) * item.quantity, currency)}
+                        {formatCurrency(item.product.price * item.quantity, currency)}
                       </p>
                     </div>
                   ))}

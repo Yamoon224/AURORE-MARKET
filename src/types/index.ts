@@ -82,8 +82,5 @@ export interface ProductFilters {
 // Sort types
 export type SortOption = "featured" | "priceAsc" | "priceDesc" | "rating" | "newest";
 
-
-export type SortOption = "featured" | "priceAsc" | "priceDesc" | "rating" | "newest";
-
 // Locale types
 export type Locale = "en" | "fr";
