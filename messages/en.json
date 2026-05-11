@@ -1,0 +1,189 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "cart": "Cart",
+    "search": "Search",
+    "newArrivals": "New Arrivals",
+    "brands": "Brands",
+    "skincare": "Skincare",
+    "makeup": "Makeup",
+    "fragrance": "Fragrance",
+    "sale": "Sale"
+  },
+  "home": {
+    "hero": {
+      "title": "Discover Your Beauty",
+      "subtitle": "Premium cosmetics and skincare for every skin type",
+      "cta": "Shop Now",
+      "ctaSecondary": "Discover Brands"
+    },
+    "featured": "Featured Products",
+    "newArrivals": "New Arrivals",
+    "shopByCategory": "Shop by Category",
+    "viewAll": "View All"
+  },
+  "products": {
+    "title": "All Products",
+    "filter": "Filter",
+    "sort": "Sort by",
+    "sortOptions": {
+      "featured": "Featured",
+      "priceAsc": "Price: Low to High",
+      "priceDesc": "Price: High to Low",
+      "rating": "Highest Rated",
+      "newest": "Newest"
+    },
+    "filters": {
+      "brand": "Brand",
+      "category": "Category",
+      "priceRange": "Price Range",
+      "rating": "Rating",
+      "all": "All",
+      "clearAll": "Clear All",
+      "apply": "Apply Filters"
+    },
+    "addToCart": "Add to Cart",
+    "addedToCart": "Added to cart!",
+    "viewDetails": "View Details",
+    "noProducts": "No products found",
+    "loading": "Loading products...",
+    "outOfStock": "Out of Stock",
+    "freeShipping": "Free Shipping",
+    "rating": "Rating",
+    "reviews": "reviews"
+  },
+  "product": {
+    "description": "Description",
+    "details": "Product Details",
+    "shade": "Available Shades",
+    "quantity": "Quantity",
+    "addToCart": "Add to Cart",
+    "buyNow": "Buy Now",
+    "share": "Share",
+    "related": "You Might Also Like"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "emptyDesc": "Looks like you haven't added anything to your cart yet.",
+    "continueShopping": "Continue Shopping",
+    "item": "item",
+    "items": "items",
+    "quantity": "Qty",
+    "remove": "Remove",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "free": "Free",
+    "total": "Total",
+    "checkout": "Proceed to Checkout",
+    "orderSummary": "Order Summary"
+  },
+  "home": {
+    "hero": {
+      "title": "Discover Your Beauty",
+      "subtitle": "Premium cosmetics and skincare for every skin type",
+      "cta": "Shop Now",
+      "ctaSecondary": "Discover Brands"
+    },
+    "featured": "Featured Products",
+    "newArrivals": "New Arrivals",
+    "categories": "Shop by Category",
+    "viewAll": "View All"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "contactInfo": "Contact Information",
+    "shippingAddress": "Shipping Address",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phone": "Phone Number",
+    "email": "Email Address",
+    "address": "Street Address",
+    "city": "City",
+    "country": "Country",
+    "zip": "Postal Code",
+    "notes": "Order Notes (Optional)",
+    "notesPlaceholder": "Any special instructions?",
+    "placeOrder": "Place Order via WhatsApp",
+    "customerInfo": "Customer Information",
+    "selectCountry": "Select country",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "free": "Free",
+    "total": "Total",
+    "orderSummary": "Order Summary",
+    "processing": "Processing...",
+    "required": "This field is required",
+    "invalidPhone": "Please enter a valid phone number"
+  },
+  "receipt": {
+    "title": "Order Confirmation",
+    "subtitle": "Your order has been submitted!",
+    "orderId": "Order ID",
+    "date": "Order Date",
+    "customer": "Customer",
+    "items": "Items Ordered",
+    "total": "Order Total",
+    "contact": "Contact",
+    "qrCode": "Scan to track your order",
+    "whatsappSent": "Your order details have been sent to WhatsApp",
+    "downloadReceipt": "Download Receipt",
+    "continueShopping": "Continue Shopping",
+    "thankYou": "Thank you for your order!"
+  },
+  "currency": {
+    "label": "Currency",
+    "usd": "USD - US Dollar",
+    "eur": "EUR - Euro",
+    "cad": "CAD - Canadian Dollar",
+    "xof": "XOF - CFA Franc (West Africa)",
+    "xaf": "XAF - CFA Franc (Central Africa)"
+  },
+  "theme": {
+    "light": "Light Mode",
+    "dark": "Dark Mode",
+    "toggle": "Toggle Theme"
+  },
+  "language": {
+    "en": "English",
+    "fr": "Français"
+  },
+  "footer": {
+    "tagline": "Beauty for everyone",
+    "shop": "Shop",
+    "help": "Help",
+    "company": "Company",
+    "allProducts": "All Products",
+    "newArrivals": "New Arrivals",
+    "brands": "Brands",
+    "faq": "FAQ",
+    "shipping": "Shipping",
+    "returns": "Returns",
+    "contact": "Contact",
+    "about": "About Us",
+    "careers": "Careers",
+    "press": "Press",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "rights": "All rights reserved.",
+    "followUs": "Follow Us"
+  },
+  "common": {
+    "search": "Search products...",
+    "searchBtn": "Search",
+    "back": "Back",
+    "close": "Close",
+    "open": "Open",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "share": "Share"
+  }
+}

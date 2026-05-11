@@ -1,26 +1,277 @@
 @import "tailwindcss";
 
+/* =============================================
+   AURORE BEAUTY - DESIGN SYSTEM
+   Primary: Vivid Brown (Marron Vif)
+   ============================================= */
+
+@theme {
+  /* Brown color palette */
+  --color-brown-50: #fdf8f3;
+  --color-brown-100: #faeedd;
+  --color-brown-200: #f3d9b3;
+  --color-brown-300: #e9bc80;
+  --color-brown-400: #dd9948;
+  --color-brown-500: #c4651a;
+  --color-brown-600: #a84d12;
+  --color-brown-700: #7c3d12;
+  --color-brown-800: #5c2d0e;
+  --color-brown-900: #3d1e0a;
+  --color-brown-950: #1e0f05;
+
+  /* Primary brand colors */
+  --color-primary: #7c3d12;
+  --color-primary-hover: #5c2d0e;
+  --color-primary-light: #a84d12;
+  --color-primary-foreground: #fdf8f3;
+
+  /* Accent */
+  --color-accent: #c4651a;
+  --color-accent-hover: #a84d12;
+  --color-gold: #d4a853;
+
+  /* Dark theme surfaces */
+  --color-dark-bg: #0f0805;
+  --color-dark-surface: #1a0f08;
+  --color-dark-surface-2: #241408;
+  --color-dark-border: #3d1e0a;
+  --color-dark-text: #fdf8f3;
+  --color-dark-muted: #b89470;
+
+  /* Light theme surfaces */
+  --color-light-bg: #fdfaf5;
+  --color-light-surface: #fff8f0;
+  --color-light-surface-2: #faeedd;
+  --color-light-border: #e9bc80;
+  --color-light-text: #1e0f05;
+  --color-light-muted: #7c5a3c;
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+
+  /* Spacing & Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-product: 0 4px 20px rgba(124, 61, 18, 0.1);
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-header: 0 1px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* =============================================
+   CSS VARIABLES FOR THEMING
+   ============================================= */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light theme: clean white with neutral grays */
+  --bg: #ffffff;
+  --surface: #f8f9fa;
+  --surface-2: #f1f3f5;
+  --border: #e9ecef;
+  --text: #0f172a;
+  --text-muted: #64748b;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root[data-theme="dark"] {
+  --bg: var(--color-dark-bg);
+  --surface: var(--color-dark-surface);
+  --surface-2: var(--color-dark-surface-2);
+  --border: var(--color-dark-border);
+  --text: var(--color-dark-text);
+  --text-muted: var(--color-dark-muted);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* =============================================
+   BASE STYLES
+   ============================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* =============================================
+   SCROLLBAR STYLING
+   ============================================= */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brown-600);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* =============================================
+   UTILITY CLASSES
+   ============================================= */
+.text-themed {
+  color: var(--text);
+}
+
+.text-muted-themed {
+  color: var(--text-muted);
+}
+
+.bg-themed {
+  background-color: var(--bg);
+}
+
+.bg-surface {
+  background-color: var(--surface);
+}
+
+.bg-surface-2 {
+  background-color: var(--surface-2);
+}
+
+.border-themed {
+  border-color: var(--border);
+}
+
+/* Product card hover effect */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-product);
+}
+
+/* =============================================
+   LINE CLAMP UTILITY
+   ============================================= */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* =============================================
+   BUTTON BASE
+   ============================================= */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* =============================================
+   GRADIENT BACKGROUNDS
+   ============================================= */
+.gradient-brown {
+  background: linear-gradient(135deg, var(--color-brown-800) 0%, var(--color-brown-600) 50%, var(--color-brown-500) 100%);
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, #1e0f05 0%, #3d1e0a 40%, #5c2d0e 100%);
+}
+
+/* =============================================
+   SKELETON LOADING
+   ============================================= */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface) 25%,
+    var(--surface-2) 50%,
+    var(--surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* =============================================
+   FORM INPUTS
+   ============================================= */
+.input-themed {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-themed:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(124, 61, 18, 0.15);
+}
+
+.input-themed::placeholder {
+  color: var(--text-muted);
+}
+
