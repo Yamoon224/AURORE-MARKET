@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aurore Beauty
 
-## Getting Started
+Boutique e-commerce moderne construite avec Next.js 16, axee sur les produits de beaute, avec internationalisation FR/EN, panier persistant, multi-devises et commande via WhatsApp.
 
-First, run the development server:
+## Apercu
+
+Aurore Beauty propose un parcours d'achat simple et rapide:
+
+- catalogue produits alimente par DummyJSON
+- page produit detaillee
+- panier persistant (Zustand + localStorage)
+- checkout avec recapitulatif
+- envoi de commande via WhatsApp
+- support des langues francais/anglais
+- support des devises USD, EUR, XOF
+
+## Stack technique
+
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- next-intl (i18n)
+- Zustand (state management persistant)
+- react-hot-toast
+- lucide-react
+
+## Fonctionnalites principales
+
+- Internationalisation
+	- locales: en, fr
+	- routage localise via next-intl
+	- messages dans le dossier messages
+
+- Catalogue et data
+	- source API: https://dummyjson.com/products
+	- categories et filtres sur la page produits
+	- cartes produits uniformes
+
+- Panier et checkout
+	- ajout/suppression/modification quantite
+	- total automatique selon devise choisie
+	- persistance entre rafraichissements
+
+- Paiement/commande
+	- generation d'un message de commande
+	- ouverture de WhatsApp vers: +225 59 34 38 66
+
+## Installation
+
+Prerequis:
+
+- Node.js 20+
+- npm
+
+Etapes:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Application disponible sur:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts utiles
 
-## Learn More
+```bash
+npm run dev     # lance le serveur de developpement
+npm run build   # build de production
+npm run start   # demarre le build en production
+npm run lint    # verifie le code avec ESLint
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Structure du projet
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```text
+src/
+	app/
+		[locale]/
+			page.tsx
+			products/
+			checkout/
+	components/
+		home/
+		layout/
+		products/
+		providers/
+		ui/
+	i18n/
+	lib/
+	stores/
+	types/
+messages/
+middleware.ts
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Configuration i18n
 
-## Deploy on Vercel
+- locales definies dans src/i18n/routing.ts
+- middleware next-intl dans middleware.ts
+- navigation localisee via src/navigation.ts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Devises supportees
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- USD
+- EUR
+- XOF
+
+La conversion et le formatage sont centralises dans src/lib/currency.ts.
+
+## Notes de developpement
+
+- Le projet utilise des composants client pour les interactions panier, theme et selecteurs.
+- Les etats persistants utilisent skipHydration pour eviter les erreurs SSR/CSR.
+- Les pages produits recuperent les donnees DummyJSON avec revalidation.
+
+## Roadmap possible
+
+- integration d'un vrai backend de commandes
+- systeme d'authentification utilisateur
+- historique des commandes
+- tests e2e (Playwright)
+- dashboard admin
+
+## Licence
+
+Projet prive.
+# AURORE-MARKET
