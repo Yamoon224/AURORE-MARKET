@@ -1,0 +1,53 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gold" x1="86" y1="74" x2="418" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF2B0" />
+      <stop offset="0.23" stop-color="#F3CF68" />
+      <stop offset="0.5" stop-color="#C78D2F" />
+      <stop offset="0.74" stop-color="#FFE38B" />
+      <stop offset="1" stop-color="#8F5A16" />
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(313 153) rotate(90) scale(62)">
+      <stop stop-color="#FFF1A8" />
+      <stop offset="0.55" stop-color="#F6C85B" />
+      <stop offset="1" stop-color="#A96C1E" />
+    </radialGradient>
+    <filter id="softGlow" x="0" y="0" width="512" height="512" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="7" />
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="256" fill="#050505" />
+  <circle cx="256" cy="256" r="208" stroke="url(#gold)" stroke-width="3" />
+  <circle cx="256" cy="256" r="195" stroke="url(#gold)" stroke-width="1.5" opacity="0.9" />
+
+  <g opacity="0.6" filter="url(#softGlow)">
+    <path d="M334 425C372 417 401 406 435 385" stroke="#F6C85B" stroke-width="12" stroke-linecap="round" />
+  </g>
+  <path d="M331 423C370 416 403 404 439 381" stroke="url(#gold)" stroke-width="6" stroke-linecap="round" />
+
+  <g>
+    <circle cx="315" cy="152" r="32" fill="url(#sunGlow)" />
+    <path d="M315 94V118" stroke="url(#gold)" stroke-width="4" stroke-linecap="round" />
+    <path d="M315 186V210" stroke="url(#gold)" stroke-width="4" stroke-linecap="round" />
+    <path d="M273 152H297" stroke="url(#gold)" stroke-width="4" stroke-linecap="round" />
+    <path d="M333 152H357" stroke="url(#gold)" stroke-width="4" stroke-linecap="round" />
+    <path d="M287 124L300 137" stroke="url(#gold)" stroke-width="4" stroke-linecap="round" />
+    <path d="M330 167L343 180" stroke="url(#gold)" stroke-width="4" stroke-linecap="round" />
+    <path d="M287 180L300 167" stroke="url(#gold)" stroke-width="4" stroke-linecap="round" />
+    <path d="M330 137L343 124" stroke="url(#gold)" stroke-width="4" stroke-linecap="round" />
+  </g>
+
+  <g fill="none" stroke="url(#gold)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M177 279L229 112C231 104 238 99 246 99H253C261 99 268 104 270 112L323 279" stroke-width="12" />
+    <path d="M205 221H295" stroke-width="10" />
+    <path d="M264 103C284 117 297 143 298 168C299 201 282 224 261 240" stroke-width="5" opacity="0.9" />
+    <path d="M244 116C236 154 219 187 193 212" stroke-width="5" opacity="0.9" />
+    <path d="M229 125C214 153 190 179 162 192" stroke-width="5" opacity="0.9" />
+    <path d="M219 138C203 165 181 186 153 200" stroke-width="5" opacity="0.9" />
+    <path d="M287 112C292 141 307 168 332 188" stroke-width="5" opacity="0.9" />
+    <path d="M266 130C253 128 241 134 236 145C231 155 233 168 241 176C249 184 262 186 272 181" stroke-width="4" opacity="0.9" />
+  </g>
+
+  <text x="256" y="336" text-anchor="middle" fill="url(#gold)" font-size="74" font-family="Georgia, 'Times New Roman', serif" letter-spacing="2">AURORE</text>
+  <text x="256" y="388" text-anchor="middle" fill="url(#gold)" font-size="38" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-style="italic">Luxury Beauty</text>
+</svg>

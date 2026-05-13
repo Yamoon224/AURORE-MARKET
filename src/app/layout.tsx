@@ -4,6 +4,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Aurore Beauty",
   description: "Premium cosmetics & skincare — Votre boutique beauté en ligne",
+  icons: {
+    icon: "/aurore-logo.svg",
+    shortcut: "/aurore-logo.svg",
+    apple: "/aurore-logo.svg",
+  },
 };
 
 export default function RootLayout({

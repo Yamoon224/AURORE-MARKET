@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname as useFullPathname } from "next/navigation";
 import { useRouter, usePathname } from "@/navigation";
 import { useTranslations, useLocale } from "next-intl";
@@ -98,19 +99,32 @@ export default function Header() {
           {/* Logo */}
           <Link
             href={`/${locale}`}
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-3 group"
           >
-            <div className="w-9 h-9 rounded-full bg-[#7c3d12] flex items-center justify-center">
-              <span className="text-[#fdf8f3] font-bold text-lg" style={{ fontFamily: "Playfair Display, serif" }}>
-                A
+            <div className="relative h-12 w-12 overflow-hidden rounded-full ring-1 ring-[#c78d2f]/35 sm:h-14 sm:w-14">
+              <Image
+                src="/aurore-logo.svg"
+                alt="Aurore Luxury Beauty"
+                fill
+                sizes="(min-width: 640px) 56px, 48px"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                priority
+              />
+            </div>
+            <div className="hidden sm:flex flex-col leading-none">
+              <span
+                className="text-2xl font-bold tracking-[0.18em] text-[#7c3d12] group-hover:text-[#5c2d0e] transition-colors"
+                style={{ fontFamily: "Playfair Display, serif" }}
+              >
+                AURORE
+              </span>
+              <span
+                className="mt-1 text-xs text-[#b67b27] group-hover:text-[#8f5a16] transition-colors"
+                style={{ fontFamily: "Playfair Display, serif", fontStyle: "italic" }}
+              >
+                Luxury Beauty
               </span>
             </div>
-            <span
-              className="text-2xl font-bold text-[#7c3d12] group-hover:text-[#5c2d0e] transition-colors hidden sm:block"
-              style={{ fontFamily: "Playfair Display, serif" }}
-            >
-              Aurore
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
