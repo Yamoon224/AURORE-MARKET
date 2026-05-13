@@ -68,7 +68,7 @@ export default function HeroBanner() {
         }}
       />
 
-      <div className="relative z-10 mx-auto grid min-h-[calc(100vh-7rem)] max-w-7xl gap-10 px-4 pb-14 sm:px-6 lg:grid-cols-[0.88fr_1.62fr] lg:items-stretch lg:gap-0 lg:pb-16">
+      <div className="relative z-10 mx-auto grid min-h-[calc(100vh-7rem)] max-w-[1400px] gap-8 px-4 pb-8 sm:px-6 lg:grid-cols-[0.72fr_1.58fr_0.7fr] lg:items-stretch lg:gap-0 lg:pb-10">
         <div className="relative hidden overflow-hidden rounded-[2rem] border border-[#5d431b] bg-[radial-gradient(circle_at_40%_18%,rgba(246,200,91,0.28),transparent_26%),linear-gradient(160deg,#130a04_0%,#090704_56%,#050505_100%)] md:block lg:rounded-none lg:border-y-0 lg:border-l-0 lg:border-r-[#7d5a23]/55">
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.6))]" />
           <div className="absolute left-[-15%] top-[8%] h-[84%] w-[72%] rounded-full bg-[radial-gradient(circle,rgba(183,104,30,0.72)_0%,rgba(98,51,14,0.2)_32%,transparent_70%)] blur-2xl" />
@@ -80,7 +80,7 @@ export default function HeroBanner() {
         </div>
 
         <div className="relative flex items-center">
-          <div className="w-full py-8 lg:py-12 lg:pl-10 xl:pl-14">
+          <div className="w-full py-8 lg:py-10 lg:pl-10 xl:pl-14">
             <div className="mb-5 flex items-center gap-3 text-[#e8c56c]">
               <div className="relative h-16 w-16 overflow-hidden rounded-full border border-[#e8c56c]/40 bg-black/40 shadow-[0_0_24px_rgba(232,197,108,0.2)] sm:h-20 sm:w-20">
                 <Image
@@ -100,7 +100,7 @@ export default function HeroBanner() {
 
             <div className="relative inline-block">
               <h1
-                className="text-[4rem] font-semibold leading-none tracking-[0.08em] text-transparent sm:text-[5.5rem] lg:text-[7.2rem] xl:text-[8.5rem]"
+                className="text-[4rem] font-semibold leading-none tracking-[0.06em] text-transparent sm:text-[5.2rem] lg:text-[6.3rem] xl:text-[7.4rem]"
                 style={{
                   fontFamily: "Playfair Display, serif",
                   backgroundImage: "linear-gradient(90deg, #b9872f 0%, #f8ec9e 32%, #a87423 100%)",
@@ -114,14 +114,14 @@ export default function HeroBanner() {
             </div>
 
             <p
-              className="mt-2 text-4xl italic text-[#ddb04f] sm:text-5xl lg:text-6xl"
+              className="mt-1 text-4xl italic text-[#ddb04f] sm:text-5xl lg:text-[4.7rem]"
               style={{ fontFamily: "Playfair Display, serif" }}
             >
               Luxury Beauty
             </p>
 
             <p
-              className="mt-6 max-w-4xl text-xl uppercase tracking-[0.06em] text-[#d6b15a] sm:text-2xl lg:text-[2.2rem]"
+              className="mt-5 max-w-4xl text-xl uppercase tracking-[0.04em] text-[#d6b15a] sm:text-2xl lg:text-[1.95rem]"
               style={{ fontFamily: "Playfair Display, serif" }}
             >
               {isFrench
@@ -129,7 +129,7 @@ export default function HeroBanner() {
                 : "Reveal your glow, elevate your beauty"}
             </p>
 
-            <div className="mt-8 inline-flex flex-wrap items-center gap-3 border border-[#a67a2f] bg-black/55 px-4 py-3 text-lg text-[#ebc666] shadow-[0_0_35px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:px-6 sm:text-2xl">
+            <div className="mt-8 inline-flex flex-wrap items-center gap-3 border border-[#a67a2f] bg-black/55 px-4 py-3 text-lg text-[#ebc666] shadow-[0_0_35px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:px-6 sm:text-[2.05rem]">
               {services.map((service, index) => (
                 <span key={service} className="flex items-center gap-3" style={{ fontFamily: "Playfair Display, serif" }}>
                   {index > 0 ? <span className="text-[#d6ad4f]">•</span> : null}
@@ -139,22 +139,13 @@ export default function HeroBanner() {
             </div>
 
             <p
-              className="mt-6 text-2xl italic text-[#d8a846] sm:text-3xl lg:text-4xl"
+              className="mt-6 text-2xl italic text-[#d8a846] sm:text-3xl lg:text-[3.2rem]"
               style={{ fontFamily: "Playfair Display, serif" }}
             >
               {isFrench
                 ? "Prenez rendez-vous, offrez-vous l'exception"
                 : "Book your appointment, indulge in excellence"}
             </p>
-
-            <div className="mt-6 grid gap-4 text-[#f7e2a0] md:max-w-3xl md:grid-cols-[auto_1fr] md:items-center">
-              <div className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-[#d8b463] bg-black/40 shadow-[0_0_24px_rgba(216,180,99,0.16)]">
-                <Clock3 size={26} />
-              </div>
-              <p className="max-w-xl text-2xl font-medium leading-tight text-[#ff6f2c] sm:text-3xl" style={{ fontFamily: "Playfair Display, serif" }}>
-                {openingHours}
-              </p>
-            </div>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link href={`/${locale}/products`}>
@@ -175,18 +166,60 @@ export default function HeroBanner() {
                 {isFrench ? "Prendre rendez-vous" : "Book an appointment"}
               </a>
             </div>
+          </div>
+        </div>
 
-            <div className="mt-10 grid gap-4 border-t border-[#7a5b24]/50 pt-6 text-[#ddb95f] lg:grid-cols-[1.4fr_1fr_1fr]">
-              <div className="flex items-start gap-3">
-                <MapPin size={18} className="mt-1 shrink-0" />
-                <p className="text-sm leading-6 text-[#d8bf82] sm:text-base">{address}</p>
-              </div>
-              <div className="flex items-center gap-3 text-sm sm:text-base">
+        <div className="relative hidden items-center justify-center lg:flex">
+          <div className="w-full max-w-[320px] px-6 text-center">
+            <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-full border border-[#d8b463] bg-black/45 text-[#e4c56f] shadow-[0_0_28px_rgba(216,180,99,0.18)]">
+              <Clock3 size={30} />
+            </div>
+            <p
+              className="mt-5 text-[1.05rem] leading-tight text-[#ff5b1a] xl:text-[1.2rem]"
+              style={{ fontFamily: "Playfair Display, serif" }}
+            >
+              {isFrench ? "Du mardi au dimanche" : "Tuesday to Sunday"}
+              <br />
+              {isFrench ? "apres midi" : "afternoon"}
+            </p>
+            <p
+              className="mt-3 text-[2.6rem] font-semibold leading-none text-[#ff5b1a] xl:text-[3.4rem]"
+              style={{ fontFamily: "Playfair Display, serif" }}
+            >
+              {isFrench ? "de 8h a 19h" : "8am to 7pm"}
+            </p>
+            <div className="mt-8 space-y-4 border-t border-[#7a5b24]/45 pt-6 text-left text-[#d6b15a]">
+              <div className="flex items-center gap-3 text-[1.05rem] xl:text-[1.2rem]">
                 <Phone size={18} className="shrink-0" />
                 <span>+225 07 97 878 868</span>
               </div>
-              <div className="text-sm text-[#d8bf82] sm:text-base">@auroreluxurybeauty</div>
+              <div className="flex items-center gap-3 text-[1.05rem] xl:text-[1.2rem]">
+                <Phone size={18} className="shrink-0" />
+                <span>+225 07 48 642 713</span>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative z-10 mx-auto mt-2 w-full max-w-[1400px] px-4 pb-10 sm:px-6">
+        <div className="grid gap-4 border-t border-[#7a5b24]/60 bg-[linear-gradient(180deg,rgba(4,4,4,0.2),rgba(4,4,4,0.72))] px-4 py-4 text-[#ddb95f] backdrop-blur-sm lg:grid-cols-[1.5fr_1fr_0.9fr_0.9fr] lg:items-center">
+          <div className="flex items-start gap-3">
+            <MapPin size={20} className="mt-1 shrink-0" />
+            <p className="text-sm leading-6 text-[#d8bf82] sm:text-lg" style={{ fontFamily: "Playfair Display, serif" }}>
+              {address}
+            </p>
+          </div>
+          <div className="text-lg text-[#d8bf82] sm:text-2xl" style={{ fontFamily: "Playfair Display, serif" }}>
+            @auroreluxurybeauty
+          </div>
+          <div className="flex items-center gap-3 text-base sm:text-2xl" style={{ fontFamily: "Playfair Display, serif" }}>
+            <Phone size={18} className="shrink-0" />
+            <span>+225 07 97 878 868</span>
+          </div>
+          <div className="flex items-center gap-3 text-base sm:text-2xl" style={{ fontFamily: "Playfair Display, serif" }}>
+            <Phone size={18} className="shrink-0" />
+            <span>+225 07 48 642 713</span>
           </div>
         </div>
       </div>
