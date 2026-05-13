@@ -53,11 +53,11 @@ export default async function ProductDetailPage({ params }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-[var(--text-muted)] mb-8">
-            <Link href={`/${locale}`} className="hover:text-[#7c3d12] transition-colors">
+            <Link href={`/${locale}`} className="hover:text-[var(--color-primary)] transition-colors">
               {locale === "fr" ? "Accueil" : "Home"}
             </Link>
             <span>/</span>
-            <Link href={`/${locale}/products`} className="hover:text-[#7c3d12] transition-colors">
+            <Link href={`/${locale}/products`} className="hover:text-[var(--color-primary)] transition-colors">
               {locale === "fr" ? "Produits" : "Products"}
             </Link>
             <span>/</span>
@@ -96,7 +96,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
             {/* Info */}
             <div className="flex flex-col">
-              <p className="text-xs font-bold text-[#7c3d12] uppercase tracking-widest mb-2">
+              <p className="text-xs font-bold text-[var(--color-primary)] uppercase tracking-widest mb-2">
                 {product.brand}
               </p>
               <h1
@@ -176,7 +176,7 @@ export default async function ProductDetailPage({ params }: Props) {
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
                 {related.map((p) => (
                   <Link key={p.id} href={`/${locale}/products/${p.id}`}>
-                    <div className="border border-[var(--border)] hover:border-[#7c3d12] transition-all group bg-[var(--surface)]">
+                    <div className="border border-[var(--border)] hover:border-[var(--color-primary)] transition-all group bg-[var(--surface)]">
                       <div className="aspect-square relative bg-[var(--surface-2)] overflow-hidden">
                         <Image
                           src={p.thumbnail}

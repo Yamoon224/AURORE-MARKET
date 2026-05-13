@@ -31,8 +31,8 @@ export default function StarRating({
             size={size}
             className={
               i < filled
-                ? "fill-[#d4a853] text-[#d4a853]"
-                : "fill-transparent text-[#d4a853] opacity-30"
+                ? "fill-[var(--color-gold)] text-[var(--color-gold)]"
+                : "fill-transparent text-[var(--color-gold)] opacity-30"
             }
           />
         ))}

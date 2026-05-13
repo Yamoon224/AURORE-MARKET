@@ -60,7 +60,7 @@ export default function CartDrawer() {
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-[var(--border)]">
           <div className="flex items-center gap-3">
-            <ShoppingBag size={22} className="text-[#7c3d12]" />
+            <ShoppingBag size={22} className="text-[var(--color-primary)]" />
             <h2
               className="text-lg font-bold text-[var(--text)]"
               style={{ fontFamily: "Playfair Display, serif" }}
@@ -68,7 +68,7 @@ export default function CartDrawer() {
               {t("cart.title")}
             </h2>
             {items.length > 0 && (
-              <span className="px-2 py-0.5 text-xs rounded-full bg-[#7c3d12] text-[#fdf8f3] font-medium">
+              <span className="px-2 py-0.5 text-xs rounded-full bg-[var(--color-primary)] text-[var(--color-primary-foreground)] font-medium">
                 {items.reduce((s, i) => s + i.quantity, 0)}
               </span>
             )}
@@ -99,7 +99,7 @@ export default function CartDrawer() {
               </div>
               <button
                 onClick={closeCart}
-                className="mt-2 text-sm font-medium text-[#7c3d12] hover:text-[#5c2d0e] underline-offset-2 hover:underline"
+                className="mt-2 text-sm font-medium text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] underline-offset-2 hover:underline"
               >
                 {t("cart.continueShopping")}
               </button>
@@ -124,13 +124,13 @@ export default function CartDrawer() {
 
                   {/* Product info */}
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs text-[#7c3d12] font-medium uppercase tracking-wide mb-0.5">
+                    <p className="text-xs text-[var(--color-primary)] font-medium uppercase tracking-wide mb-0.5">
                       {item.product.brand}
                     </p>
                     <p className="text-sm font-medium text-[var(--text)] line-clamp-2 leading-tight">
                       {item.product.title}
                     </p>
-                    <p className="text-sm font-bold text-[#7c3d12] mt-1">
+                    <p className="text-sm font-bold text-[var(--color-primary)] mt-1">
                       {formatCurrency(
                         item.product.price * item.quantity,
                         currency
@@ -194,7 +194,7 @@ export default function CartDrawer() {
               </div>
               <div className="border-t border-[var(--border)] pt-2 flex items-center justify-between">
                 <span className="font-semibold text-[var(--text)]">{t("cart.total")}</span>
-                <span className="text-xl font-bold text-[#7c3d12]">
+                <span className="text-xl font-bold text-[var(--color-primary)]">
                   {formatCurrency(subtotal, currency)}
                 </span>
               </div>
@@ -213,7 +213,7 @@ export default function CartDrawer() {
 
             <button
               onClick={closeCart}
-              className="w-full text-center text-sm text-[var(--text-muted)] hover:text-[#7c3d12] transition-colors py-1"
+              className="w-full text-center text-sm text-[var(--text-muted)] hover:text-[var(--color-primary)] transition-colors py-1"
             >
               {t("cart.continueShopping")}
             </button>

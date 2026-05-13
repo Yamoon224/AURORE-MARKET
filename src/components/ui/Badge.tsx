@@ -15,11 +15,11 @@ export default function Badge({
 }: BadgeProps) {
   const variants = {
     default: "bg-[var(--surface-2)] text-[var(--text-muted)]",
-    primary: "bg-[#7c3d12] text-[#fdf8f3]",
-    secondary: "bg-[#c4651a] text-white",
+    primary: "bg-[var(--color-primary)] text-[var(--color-primary-foreground)]",
+    secondary: "bg-[var(--color-accent)] text-[#17120a]",
     success: "bg-emerald-600 text-white",
     warning: "bg-amber-500 text-white",
-    outline: "border border-[#7c3d12] text-[#7c3d12]",
+    outline: "border border-[var(--color-primary)] text-[var(--color-primary)]",
   };
 
   const sizes = {

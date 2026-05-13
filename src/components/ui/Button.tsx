@@ -27,13 +27,13 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variants = {
       primary:
-        "bg-[#7c3d12] text-[#fdf8f3] hover:bg-[#5c2d0e] focus-visible:ring-[#7c3d12]",
+        "bg-[var(--color-primary)] text-[var(--color-primary-foreground)] hover:bg-[var(--color-primary-hover)] focus-visible:ring-[var(--color-primary)]",
       secondary:
-        "bg-[#c4651a] text-white hover:bg-[#a84d12] focus-visible:ring-[#c4651a]",
+        "bg-[var(--color-accent)] text-[#17120a] hover:bg-[var(--color-accent-hover)] focus-visible:ring-[var(--color-accent)]",
       outline:
-        "border-2 border-[#7c3d12] text-[#7c3d12] hover:bg-[#7c3d12] hover:text-[#fdf8f3] focus-visible:ring-[#7c3d12]",
+        "border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-foreground)] focus-visible:ring-[var(--color-primary)]",
       ghost:
-        "text-[#7c3d12] hover:bg-[#faeedd] focus-visible:ring-[#7c3d12]",
+        "text-[var(--color-primary)] hover:bg-[var(--surface-2)] focus-visible:ring-[var(--color-primary)]",
       danger:
         "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-600",
     };

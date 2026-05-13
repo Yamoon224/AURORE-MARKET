@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Camera, MessageCircle, Share2, Heart } from "lucide-react";
 
@@ -15,21 +16,30 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-full bg-[#7c3d12] flex items-center justify-center">
+            <div className="mb-4 flex items-center gap-3">
+              <div className="relative h-12 w-12 overflow-hidden rounded-full ring-1 ring-[#c78d2f]/35">
+                <Image
+                  src="/aurore-logo.svg"
+                  alt="Aurore Luxury Beauty"
+                  fill
+                  sizes="48px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col leading-none">
                 <span
-                  className="text-[#fdf8f3] font-bold text-lg"
+                  className="text-xl font-bold tracking-[0.16em] text-[var(--color-primary)]"
                   style={{ fontFamily: "Playfair Display, serif" }}
                 >
-                  A
+                  AURORE
+                </span>
+                <span
+                  className="mt-1 text-xs text-[var(--color-accent-hover)]"
+                  style={{ fontFamily: "Playfair Display, serif", fontStyle: "italic" }}
+                >
+                  Luxury Beauty
                 </span>
               </div>
-              <span
-                className="text-xl font-bold text-[#7c3d12]"
-                style={{ fontFamily: "Playfair Display, serif" }}
-              >
-                Aurore
-              </span>
             </div>
             <p className="text-sm text-[var(--text-muted)] mb-6 leading-relaxed">
               {t("tagline")}
@@ -38,21 +48,21 @@ export default function Footer() {
               <a
                 href="#"
                 aria-label="Instagram"
-                className="p-2 rounded-lg bg-[var(--surface-2)] hover:bg-[#7c3d12] hover:text-[#fdf8f3] text-[var(--text-muted)] transition-all"
+                className="p-2 rounded-lg bg-[var(--surface-2)] hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-foreground)] text-[var(--text-muted)] transition-all"
               >
                 <Camera size={18} />
               </a>
               <a
                 href="#"
                 aria-label="Facebook"
-                className="p-2 rounded-lg bg-[var(--surface-2)] hover:bg-[#7c3d12] hover:text-[#fdf8f3] text-[var(--text-muted)] transition-all"
+                className="p-2 rounded-lg bg-[var(--surface-2)] hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-foreground)] text-[var(--text-muted)] transition-all"
               >
                 <Share2 size={18} />
               </a>
               <a
                 href="#"
                 aria-label="Twitter"
-                className="p-2 rounded-lg bg-[var(--surface-2)] hover:bg-[#7c3d12] hover:text-[#fdf8f3] text-[var(--text-muted)] transition-all"
+                className="p-2 rounded-lg bg-[var(--surface-2)] hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-foreground)] text-[var(--text-muted)] transition-all"
               >
                 <MessageCircle size={18} />
               </a>
@@ -73,7 +83,7 @@ export default function Footer() {
                 <li key={label}>
                   <Link
                     href={href}
-                    className="text-sm text-[var(--text-muted)] hover:text-[#7c3d12] transition-colors"
+                    className="text-sm text-[var(--text-muted)] hover:text-[var(--color-primary)] transition-colors"
                   >
                     {label}
                   </Link>
@@ -97,7 +107,7 @@ export default function Footer() {
                 <li key={label}>
                   <a
                     href={href}
-                    className="text-sm text-[var(--text-muted)] hover:text-[#7c3d12] transition-colors"
+                    className="text-sm text-[var(--text-muted)] hover:text-[var(--color-primary)] transition-colors"
                   >
                     {label}
                   </a>
@@ -122,7 +132,7 @@ export default function Footer() {
                 <li key={label}>
                   <a
                     href={href}
-                    className="text-sm text-[var(--text-muted)] hover:text-[#7c3d12] transition-colors"
+                    className="text-sm text-[var(--text-muted)] hover:text-[var(--color-primary)] transition-colors"
                   >
                     {label}
                   </a>
@@ -140,7 +150,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Aurore Beauty. {t("rights")}
           </p>
           <p className="text-xs text-[var(--text-muted)] flex items-center gap-1">
-            Made with <Heart size={12} className="text-[#7c3d12] fill-[#7c3d12]" /> by Aurore Team
+            Made with <Heart size={12} className="text-[var(--color-primary)] fill-[var(--color-primary)]" /> by Aurore Team
           </p>
         </div>
       </div>

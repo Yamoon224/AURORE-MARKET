@@ -29,6 +29,7 @@ function Field({
     value,
     onChange,
     placeholder,
+    className,
 }: {
     label: string;
     name: string;
@@ -37,9 +38,10 @@ function Field({
     value: string;
     onChange: (v: string) => void;
     placeholder?: string;
+    className?: string;
 }) {
     return (
-        <div>
+        <div className={className}>
             <label className="block text-sm font-medium text-[var(--text)] mb-1.5">
                 {label} {required && <span className="text-red-500">*</span>}
             </label>
@@ -164,7 +166,7 @@ export default function CheckoutPage() {
                             {/* Receipt header */}
                             <div
                                 className="px-8 py-6 text-white"
-                                style={{ background: "linear-gradient(135deg, #7c3d12, #c4651a)" }}
+                                style={{ background: "linear-gradient(135deg, #090909, #b88a2d)" }}
                             >
                                 <div className="flex items-start justify-between">
                                     <div>
@@ -183,7 +185,7 @@ export default function CheckoutPage() {
                                         <QRCodeSVG
                                             value={order.id}
                                             size={90}
-                                            fgColor="#7c3d12"
+                                            fgColor="#b88a2d"
                                             bgColor="white"
                                         />
                                     </div>
@@ -246,7 +248,7 @@ export default function CheckoutPage() {
                                                     x{item.quantity}
                                                 </p>
                                             </div>
-                                            <p className="text-sm font-bold text-[#7c3d12]">
+                                            <p className="text-sm font-bold text-[var(--color-primary)]">
                                                 {formatCurrency(
                                                     item.product.price * item.quantity,
                                                     order.currency
@@ -264,7 +266,7 @@ export default function CheckoutPage() {
                                         {locale === "fr" ? "Total" : "Total"}
                                     </span>
                                     <span
-                                        className="text-2xl font-bold text-[#7c3d12]"
+                                        className="text-2xl font-bold text-[var(--color-primary)]"
                                         style={{ fontFamily: "Playfair Display, serif" }}
                                     >
                                         {formatCurrency(order.total, order.currency)}
@@ -326,13 +328,13 @@ export default function CheckoutPage() {
                         {step === "form" && (
                             <form
                                 onSubmit={handleSubmit}
-                                className="bg-[var(--surface)] rounded-3xl border border-[var(--border)] p-6 sm:p-8 space-y-6"
+                                className="bg-[var(--surface)] rounded-3xl border border-[var(--border)] p-8 space-y-8 shadow-lg"
                             >
-                                <h2 className="text-xl font-bold text-[var(--text)]">
+                                <h2 className="text-2xl font-semibold text-[var(--text)] mb-4">
                                     {t("customerInfo")}
                                 </h2>
 
-                                <div className="grid sm:grid-cols-2 gap-4">
+                                <div className="grid sm:grid-cols-2 gap-6">
                                     <Field
                                         label={t("firstName")}
                                         name="firstName"
@@ -340,6 +342,7 @@ export default function CheckoutPage() {
                                         value={info.firstName}
                                         onChange={set("firstName")}
                                         placeholder="Marie"
+                                        className="input-themed"
                                     />
                                     <Field
                                         label={t("lastName")}
@@ -348,6 +351,7 @@ export default function CheckoutPage() {
                                         value={info.lastName}
                                         onChange={set("lastName")}
                                         placeholder="Koné"
+                                        className="input-themed"
                                     />
                                 </div>
 
@@ -359,6 +363,7 @@ export default function CheckoutPage() {
                                     value={info.phone}
                                     onChange={set("phone")}
                                     placeholder="+225 07 00 00 00 00"
+                                    className="input-themed"
                                 />
 
                                 <Field
@@ -368,6 +373,7 @@ export default function CheckoutPage() {
                                     value={info.email}
                                     onChange={set("email")}
                                     placeholder="marie@email.com"
+                                    className="input-themed"
                                 />
 
                                 <Field
@@ -377,9 +383,10 @@ export default function CheckoutPage() {
                                     value={info.address}
                                     onChange={set("address")}
                                     placeholder="Rue des Jardins, Cocody"
+                                    className="input-themed"
                                 />
 
-                                <div className="grid sm:grid-cols-2 gap-4">
+                                <div className="grid sm:grid-cols-2 gap-6">
                                     <Field
                                         label={t("city")}
                                         name="city"
@@ -387,6 +394,7 @@ export default function CheckoutPage() {
                                         value={info.city}
                                         onChange={set("city")}
                                         placeholder="Abidjan"
+                                        className="input-themed"
                                     />
                                     <Field
                                         label={t("zip")}
@@ -394,18 +402,19 @@ export default function CheckoutPage() {
                                         value={info.zip}
                                         onChange={set("zip")}
                                         placeholder="00225"
+                                        className="input-themed"
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-[var(--text)] mb-1.5">
+                                    <label className="block text-sm font-medium text-[var(--text)] mb-2">
                                         {t("country")} <span className="text-red-500">*</span>
                                     </label>
                                     <select
                                         required
                                         value={info.country}
                                         onChange={(e) => set("country")(e.target.value)}
-                                        className="input-themed w-full"
+                                        className="input-themed w-full rounded-md"
                                     >
                                         <option value="">— {t("selectCountry")} —</option>
                                         {COUNTRIES.map((c) => (
@@ -415,19 +424,19 @@ export default function CheckoutPage() {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-[var(--text)] mb-1.5">
+                                    <label className="block text-sm font-medium text-[var(--text)] mb-2">
                                         {t("notes")}
                                     </label>
                                     <textarea
-                                        rows={3}
+                                        rows={4}
                                         value={info.notes}
                                         onChange={(e) => set("notes")(e.target.value)}
                                         placeholder={locale === "fr" ? "Instructions de livraison, etc." : "Delivery instructions, etc."}
-                                        className="input-themed w-full resize-none"
+                                        className="input-themed w-full rounded-md resize-none"
                                     />
                                 </div>
 
-                                <Button type="submit" fullWidth size="lg">
+                                <Button type="submit" fullWidth size="lg" className="bg-[var(--primary)] text-white hover:bg-[var(--primary-dark)]">
                                     <MessageCircle size={18} />
                                     {t("placeOrder")}
                                 </Button>
@@ -509,7 +518,7 @@ export default function CheckoutPage() {
                                                     x{item.quantity}
                                                 </p>
                                             </div>
-                                            <p className="text-sm font-bold text-[#7c3d12] flex-shrink-0">
+                                            <p className="text-sm font-bold text-[var(--color-primary)] flex-shrink-0">
                                                 {formatCurrency(item.product.price * item.quantity, currency)}
                                             </p>
                                         </div>
@@ -527,7 +536,7 @@ export default function CheckoutPage() {
                                     </div>
                                     <div className="flex justify-between text-base font-bold pt-2 border-t border-[var(--border)]">
                                         <span className="text-[var(--text)]">{t("total")}</span>
-                                        <span className="text-[#7c3d12]">{formatCurrency(subtotal, currency)}</span>
+                                        <span className="text-[var(--color-primary)]">{formatCurrency(subtotal, currency)}</span>
                                     </div>
                                 </div>
                             </div>

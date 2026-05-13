@@ -49,7 +49,7 @@ export default function CategorySection() {
         <section className="py-16 px-4 sm:px-6 bg-[var(--surface)]">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-10">
-                    <p className="text-sm font-semibold text-[#c4651a] uppercase tracking-widest mb-2">
+                    <p className="text-sm font-semibold text-[var(--color-accent-hover)] uppercase tracking-widest mb-2">
                         {locale === "fr" ? "Explorer par catégorie" : "Browse by category"}
                     </p>
                     <h2
@@ -67,7 +67,7 @@ export default function CategorySection() {
                             href={`/${locale}/products?category=${cat.key}`}
                             className="group"
                         >
-                            <div className="overflow-hidden border border-[var(--border)] hover:border-[#7c3d12] hover:shadow-lg transition-all duration-300 bg-[var(--surface-2)]">
+                            <div className="overflow-hidden border border-[var(--border)] hover:border-[var(--color-primary)] hover:shadow-lg transition-all duration-300 bg-[var(--surface-2)]">
                                 <div className="relative aspect-square bg-gray-100">
                                     {images[cat.key] ? (
                                         <Image

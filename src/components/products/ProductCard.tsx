@@ -67,7 +67,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                             onClick={handleAddToCart}
                             className={`w-full flex items-center justify-center gap-2 py-2 text-sm font-semibold transition-colors ${isAdding
                                     ? "bg-emerald-600 text-white"
-                                    : "bg-gray-900 text-white hover:bg-[#7c3d12]"
+                                    : "bg-gray-900 text-white hover:bg-[var(--color-primary)]"
                                 }`}
                         >
                             <ShoppingBag size={15} />
@@ -78,7 +78,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
                 {/* Product info */}
                 <div className="p-3 flex flex-col flex-1">
-                    <p className="text-[10px] font-semibold text-[#7c3d12] uppercase tracking-wider mb-0.5">
+                    <p className="text-[10px] font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-0.5">
                         {product.brand}
                     </p>
                     <div className="flex items-start gap-1 mb-2">
@@ -90,7 +90,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                             className={`flex-shrink-0 p-1.5 transition-colors ${
                                 isAdding
                                     ? "bg-emerald-500 text-white"
-                                    : "bg-gray-100 text-gray-600 hover:bg-[#7c3d12] hover:text-white"
+                                    : "bg-gray-100 text-gray-600 hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-foreground)]"
                             }`}
                             aria-label="Ajouter au panier"
                         >

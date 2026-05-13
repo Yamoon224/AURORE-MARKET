@@ -52,7 +52,7 @@ export default async function HomePage() {
               {brands.map((brand) => (
                 <span
                   key={brand}
-                  className="text-sm font-bold uppercase tracking-widest text-[var(--text-muted)] hover:text-[#7c3d12] transition-colors cursor-default"
+                  className="text-sm font-bold uppercase tracking-widest text-[var(--text-muted)] hover:text-[var(--color-primary)] transition-colors cursor-default"
                 >
                   {brand}
                 </span>
@@ -73,7 +73,7 @@ export default async function HomePage() {
         <section className="py-16 px-4 sm:px-6">
           <div className="max-w-4xl mx-auto overflow-hidden relative text-center py-16 px-6"
             style={{
-              background: "linear-gradient(135deg, #1a1a2e 0%, #7c3d12 50%, #c4651a 100%)",
+              background: "linear-gradient(135deg, #090909 0%, #17120a 45%, #b88a2d 100%)",
             }}
           >
             <h2
@@ -85,7 +85,7 @@ export default async function HomePage() {
             <p className="text-white/80 text-lg mb-6">
               Sur toutes vos commandes · On all your orders
             </p>
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#7c3d12] font-bold text-lg">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-[#17120a] font-bold text-lg">
               ✦ Commandez maintenant · Shop Now
             </div>
           </div>

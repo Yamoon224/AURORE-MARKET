@@ -89,7 +89,7 @@ export default function Header() {
       )}
     >
       {/* Top bar */}
-      <div className="bg-[#7c3d12] text-[#fdf8f3] text-xs py-2 px-4 text-center hidden md:block">
+      <div className="bg-[#090909] text-[var(--color-accent)] text-xs py-2 px-4 text-center hidden md:block border-b border-[rgba(217,180,87,0.2)]">
         <span>✨ {locale === "fr" ? "Livraison gratuite pour toute commande • Paiement sécurisé via WhatsApp" : "Free shipping on all orders • Secure payment via WhatsApp"} ✨</span>
       </div>
 
@@ -113,13 +113,13 @@ export default function Header() {
             </div>
             <div className="hidden sm:flex flex-col leading-none">
               <span
-                className="text-2xl font-bold tracking-[0.18em] text-[#7c3d12] group-hover:text-[#5c2d0e] transition-colors"
+                className="text-2xl font-bold tracking-[0.18em] text-[var(--color-primary)] group-hover:text-[var(--color-primary-hover)] transition-colors"
                 style={{ fontFamily: "Playfair Display, serif" }}
               >
                 AURORE
               </span>
               <span
-                className="mt-1 text-xs text-[#b67b27] group-hover:text-[#8f5a16] transition-colors"
+                className="mt-1 text-xs text-[var(--color-accent-hover)] group-hover:text-[var(--color-primary)] transition-colors"
                 style={{ fontFamily: "Playfair Display, serif", fontStyle: "italic" }}
               >
                 Luxury Beauty
@@ -136,14 +136,14 @@ export default function Header() {
                 className={cn(
                   "text-sm font-medium transition-colors relative group",
                   pathname === link.href
-                    ? "text-[#7c3d12]"
-                    : "text-[var(--text-muted)] hover:text-[#7c3d12]"
+                    ? "text-[var(--color-primary)]"
+                    : "text-[var(--text-muted)] hover:text-[var(--color-primary)]"
                 )}
               >
                 {link.label}
                 <span
                   className={cn(
-                    "absolute -bottom-1 left-0 h-0.5 bg-[#7c3d12] transition-all duration-300",
+                    "absolute -bottom-1 left-0 h-0.5 bg-[var(--color-primary)] transition-all duration-300",
                     pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
                   )}
                 />
@@ -184,7 +184,7 @@ export default function Header() {
               ) : (
                 <button
                   onClick={() => setIsSearchOpen(true)}
-                  className="p-2 rounded-lg hover:bg-[var(--surface-2)] transition-colors text-[var(--text-muted)] hover:text-[#7c3d12]"
+                  className="p-2 rounded-lg hover:bg-[var(--surface-2)] transition-colors text-[var(--text-muted)] hover:text-[var(--color-primary)]"
                   aria-label={t("nav.search")}
                 >
                   <Search size={20} />
@@ -199,7 +199,7 @@ export default function Header() {
                   setIsCurrencyOpen(!isCurrencyOpen);
                   setIsLangOpen(false);
                 }}
-                className="flex items-center gap-1 px-2 py-1.5 text-xs font-medium rounded-lg hover:bg-[var(--surface-2)] transition-colors text-[var(--text-muted)] hover:text-[#7c3d12]"
+                className="flex items-center gap-1 px-2 py-1.5 text-xs font-medium rounded-lg hover:bg-[var(--surface-2)] transition-colors text-[var(--text-muted)] hover:text-[var(--color-primary)]"
               >
                 {CURRENCIES[currency].symbol}
                 <span className="hidden lg:block">{currency}</span>
@@ -217,7 +217,7 @@ export default function Header() {
                       className={cn(
                         "w-full flex items-center gap-3 px-4 py-2.5 text-sm text-left transition-colors",
                         currency === c
-                          ? "bg-[#faeedd] text-[#7c3d12] font-medium"
+                          ? "bg-[var(--surface-2)] text-[var(--color-primary)] font-medium"
                           : "hover:bg-[var(--surface-2)] text-[var(--text)]"
                       )}
                     >
@@ -236,7 +236,7 @@ export default function Header() {
                   setIsLangOpen(!isLangOpen);
                   setIsCurrencyOpen(false);
                 }}
-                className="flex items-center gap-1 px-2 py-1.5 text-xs font-medium rounded-lg hover:bg-[var(--surface-2)] transition-colors text-[var(--text-muted)] hover:text-[#7c3d12]"
+                className="flex items-center gap-1 px-2 py-1.5 text-xs font-medium rounded-lg hover:bg-[var(--surface-2)] transition-colors text-[var(--text-muted)] hover:text-[var(--color-primary)]"
               >
                 <Globe size={15} />
                 <span className="uppercase">{locale}</span>
@@ -255,7 +255,7 @@ export default function Header() {
                       className={cn(
                         "w-full flex items-center gap-2 px-4 py-2.5 text-sm transition-colors",
                         locale === l
-                          ? "bg-[#faeedd] text-[#7c3d12] font-medium"
+                          ? "bg-[var(--surface-2)] text-[var(--color-primary)] font-medium"
                           : "hover:bg-[var(--surface-2)] text-[var(--text)]"
                       )}
                     >
@@ -270,7 +270,7 @@ export default function Header() {
             {/* Theme toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-[var(--surface-2)] transition-colors text-[var(--text-muted)] hover:text-[#7c3d12]"
+              className="p-2 rounded-lg hover:bg-[var(--surface-2)] transition-colors text-[var(--text-muted)] hover:text-[var(--color-primary)]"
               aria-label={t("theme.toggle")}
             >
               {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
@@ -279,12 +279,12 @@ export default function Header() {
             {/* Cart button */}
             <button
               onClick={toggleCart}
-              className="relative p-2 rounded-lg hover:bg-[var(--surface-2)] transition-colors text-[var(--text-muted)] hover:text-[#7c3d12]"
+              className="relative p-2 rounded-lg hover:bg-[var(--surface-2)] transition-colors text-[var(--text-muted)] hover:text-[var(--color-primary)]"
               aria-label={t("nav.cart")}
             >
               <ShoppingBag size={22} />
               {mounted && totalItems > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] flex items-center justify-center rounded-full bg-[#7c3d12] text-[#fdf8f3] text-[10px] font-bold px-1">
+                <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] flex items-center justify-center rounded-full bg-[var(--color-primary)] text-[var(--color-primary-foreground)] text-[10px] font-bold px-1">
                   {totalItems > 99 ? "99+" : totalItems}
                 </span>
               )}
@@ -314,7 +314,7 @@ export default function Header() {
                 className={cn(
                   "block px-4 py-3 rounded-lg text-sm font-medium transition-colors",
                   pathname === link.href
-                    ? "bg-[#faeedd] text-[#7c3d12]"
+                    ? "bg-[var(--surface-2)] text-[var(--color-primary)]"
                     : "text-[var(--text)] hover:bg-[var(--surface-2)]"
                 )}
               >
@@ -350,7 +350,7 @@ export default function Header() {
                       className={cn(
                         "flex-1 text-center py-2 rounded-lg text-sm font-medium transition-colors",
                         locale === l
-                          ? "bg-[#7c3d12] text-[#fdf8f3]"
+                          ? "bg-[var(--color-primary)] text-[var(--color-primary-foreground)]"
                           : "bg-[var(--surface-2)] text-[var(--text)]"
                       )}
                     >

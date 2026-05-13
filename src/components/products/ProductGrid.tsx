@@ -114,14 +114,14 @@ export default function ProductGrid({
             className={cn(
               "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium border transition-all",
               showFilters
-                ? "bg-[#7c3d12] text-[#fdf8f3] border-[#7c3d12]"
-                : "bg-[var(--surface)] text-[var(--text)] border-[var(--border)] hover:border-[#7c3d12]"
+                ? "bg-[var(--color-primary)] text-[var(--color-primary-foreground)] border-[var(--color-primary)]"
+                : "bg-[var(--surface)] text-[var(--text)] border-[var(--border)] hover:border-[var(--color-primary)]"
             )}
           >
             <SlidersHorizontal size={16} />
             {t("products.filter")}
             {hasActiveFilters && (
-              <span className="w-5 h-5 rounded-full bg-[#c4651a] text-white text-xs flex items-center justify-center">
+              <span className="w-5 h-5 rounded-full bg-[var(--color-accent)] text-[#17120a] text-xs flex items-center justify-center">
                 {[selectedBrand, selectedType].filter(Boolean).length}
               </span>
             )}
@@ -152,7 +152,7 @@ export default function ProductGrid({
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as SortOption)}
-            className="pl-3 pr-8 py-2 text-sm rounded-xl border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] cursor-pointer focus:outline-none focus:border-[#7c3d12] appearance-none"
+            className="pl-3 pr-8 py-2 text-sm rounded-xl border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] cursor-pointer focus:outline-none focus:border-[var(--color-primary)] appearance-none"
           >
             <option value="featured">{t("products.sortOptions.featured")}</option>
             <option value="priceAsc">{t("products.sortOptions.priceAsc")}</option>
@@ -179,7 +179,7 @@ export default function ProductGrid({
                     className={cn(
                       "w-full text-left text-sm px-3 py-1.5 rounded-lg transition-colors",
                       !selectedBrand
-                        ? "bg-[#faeedd] text-[#7c3d12] font-medium"
+                        ? "bg-[var(--surface-2)] text-[var(--color-primary)] font-medium"
                         : "text-[var(--text-muted)] hover:bg-[var(--surface-2)]"
                     )}
                   >
@@ -192,7 +192,7 @@ export default function ProductGrid({
                       className={cn(
                         "w-full text-left text-sm px-3 py-1.5 rounded-lg transition-colors capitalize",
                         selectedBrand === brand
-                          ? "bg-[#faeedd] text-[#7c3d12] font-medium"
+                          ? "bg-[var(--surface-2)] text-[var(--color-primary)] font-medium"
                           : "text-[var(--text-muted)] hover:bg-[var(--surface-2)]"
                       )}
                     >
@@ -213,7 +213,7 @@ export default function ProductGrid({
                     className={cn(
                       "w-full text-left text-sm px-3 py-1.5 rounded-lg transition-colors",
                       !selectedType
-                        ? "bg-[#faeedd] text-[#7c3d12] font-medium"
+                        ? "bg-[var(--surface-2)] text-[var(--color-primary)] font-medium"
                         : "text-[var(--text-muted)] hover:bg-[var(--surface-2)]"
                     )}
                   >
@@ -226,7 +226,7 @@ export default function ProductGrid({
                       className={cn(
                         "w-full text-left text-sm px-3 py-1.5 rounded-lg transition-colors capitalize",
                         selectedType === type
-                          ? "bg-[#faeedd] text-[#7c3d12] font-medium"
+                          ? "bg-[var(--surface-2)] text-[var(--color-primary)] font-medium"
                           : "text-[var(--text-muted)] hover:bg-[var(--surface-2)]"
                       )}
                     >
@@ -264,7 +264,7 @@ export default function ProductGrid({
                       className={cn(
                         "px-3 py-1.5 text-sm rounded-full border transition-all",
                         !selectedBrand
-                          ? "bg-[#7c3d12] text-[#fdf8f3] border-[#7c3d12]"
+                          ? "bg-[var(--color-primary)] text-[var(--color-primary-foreground)] border-[var(--color-primary)]"
                           : "border-[var(--border)] text-[var(--text-muted)]"
                       )}
                     >
@@ -277,7 +277,7 @@ export default function ProductGrid({
                         className={cn(
                           "px-3 py-1.5 text-sm rounded-full border transition-all capitalize",
                           selectedBrand === brand
-                            ? "bg-[#7c3d12] text-[#fdf8f3] border-[#7c3d12]"
+                            ? "bg-[var(--color-primary)] text-[var(--color-primary-foreground)] border-[var(--color-primary)]"
                             : "border-[var(--border)] text-[var(--text-muted)]"
                         )}
                       >
@@ -297,7 +297,7 @@ export default function ProductGrid({
                       className={cn(
                         "px-3 py-1.5 text-sm rounded-full border transition-all",
                         !selectedType
-                          ? "bg-[#7c3d12] text-[#fdf8f3] border-[#7c3d12]"
+                          ? "bg-[var(--color-primary)] text-[var(--color-primary-foreground)] border-[var(--color-primary)]"
                           : "border-[var(--border)] text-[var(--text-muted)]"
                       )}
                     >
@@ -310,7 +310,7 @@ export default function ProductGrid({
                         className={cn(
                           "px-3 py-1.5 text-sm rounded-full border transition-all capitalize",
                           selectedType === type
-                            ? "bg-[#7c3d12] text-[#fdf8f3] border-[#7c3d12]"
+                            ? "bg-[var(--color-primary)] text-[var(--color-primary-foreground)] border-[var(--color-primary)]"
                             : "border-[var(--border)] text-[var(--text-muted)]"
                         )}
                       >
@@ -323,7 +323,7 @@ export default function ProductGrid({
 
               <button
                 onClick={() => setShowFilters(false)}
-                className="w-full mt-6 py-3 bg-[#7c3d12] text-[#fdf8f3] rounded-xl font-medium"
+                className="w-full mt-6 py-3 bg-[var(--color-primary)] text-[var(--color-primary-foreground)] rounded-xl font-medium"
               >
                 {t("products.filters.apply")}
               </button>
@@ -338,7 +338,7 @@ export default function ProductGrid({
               <p className="text-[var(--text-muted)] text-lg">{t("products.noProducts")}</p>
               <button
                 onClick={clearFilters}
-                className="mt-4 text-[#7c3d12] font-medium hover:underline"
+                className="mt-4 text-[var(--color-primary)] font-medium hover:underline"
               >
                 {t("products.filters.clearAll")}
               </button>
@@ -356,7 +356,7 @@ export default function ProductGrid({
                 <div className="text-center mt-10">
                   <button
                     onClick={() => setPage((p) => p + 1)}
-                    className="px-8 py-3 rounded-xl border-2 border-[#7c3d12] text-[#7c3d12] font-medium hover:bg-[#7c3d12] hover:text-[#fdf8f3] transition-all"
+                    className="px-8 py-3 rounded-xl border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-medium hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-foreground)] transition-all"
                   >
                     {locale === "fr" ? "Voir plus" : "Load more"}
                     <span className="ml-2 text-sm opacity-70">
