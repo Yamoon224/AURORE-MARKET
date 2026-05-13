@@ -41,19 +41,22 @@ function Field({
     className?: string;
 }) {
     return (
-        <div className={className}>
-            <label className="block text-sm font-medium text-[var(--text)] mb-1.5">
-                {label} {required && <span className="text-red-500">*</span>}
-            </label>
+        <div className={`relative ${className}`}>
             <input
                 type={type}
                 name={name}
                 required={required}
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
-                placeholder={placeholder}
-                className="input-themed w-full"
+                placeholder=" "
+                className="peer input-themed w-full rounded-sm border border-[var(--border)] bg-[var(--surface)] px-3 pt-5 pb-2 text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
             />
+            <label
+                htmlFor={name}
+                className="absolute left-3 top-2 text-sm text-[var(--text-light)] transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-placeholder-shown:text-[var(--text-light)] peer-focus:top-2 peer-focus:text-sm peer-focus:text-[var(--primary)]"
+            >
+                {label} {required && <span className="text-red-500">*</span>}
+            </label>
         </div>
     );
 }
