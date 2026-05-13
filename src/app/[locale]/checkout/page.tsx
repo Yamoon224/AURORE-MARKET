@@ -15,6 +15,9 @@ import Button from "@/components/ui/Button";
 import Image from "next/image";
 import { MessageCircle, CheckCircle, ArrowLeft, Download } from "lucide-react";
 import Link from "next/link";
+import Select, { CSSObjectWithLabel } from "react-select";
+
+type OptionType = { value: string; label: string };
 
 const COUNTRIES = [
     "Côte d'Ivoire", "Sénégal", "Mali", "Burkina Faso", "Cameroun",
@@ -413,17 +416,19 @@ export default function CheckoutPage() {
                                     <label className="block text-sm font-medium text-[var(--text)] mb-2">
                                         {t("country")} <span className="text-red-500">*</span>
                                     </label>
-                                    <select
-                                        required
-                                        value={info.country}
-                                        onChange={(e) => set("country")(e.target.value)}
-                                        className="input-themed w-full rounded-md"
-                                    >
-                                        <option value="">— {t("selectCountry")} —</option>
-                                        {COUNTRIES.map((c) => (
-                                            <option key={c} value={c}>{c}</option>
-                                        ))}
-                                    </select>
+                                    <Select
+                                        options={COUNTRIES.map((c) => ({ value: c, label: c }))
+                                        }
+                                        value={info.country ? { value: info.country, label: info.country } : null}
+                                        onChange={(selected: OptionType | null) => set("country")(selected?.value || "")}
+                                        placeholder={`— ${t("selectCountry")} —`}
+                                        classNamePrefix="react-select"
+                                        styles={{
+                                            control: (base: CSSObjectWithLabel) => ({ ...base, minHeight: "40px" }),
+                                            menu: (base: CSSObjectWithLabel) => ({ ...base, zIndex: 10 }),
+                                        }}
+                                        isSearchable
+                                    />
                                 </div>
 
                                 <div>
