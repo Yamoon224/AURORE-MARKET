@@ -52,7 +52,8 @@ function Field({
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
                 placeholder=" "
-                className="peer input-themed w-full rounded-sm border border-[var(--border)] bg-[var(--surface)] px-3 pt-5 pb-2 text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+                className="peer w-full rounded-md border border-[var(--border)] bg-[var(--surface)] px-3 pt-5 pb-2 text-[var(--text)] text-base font-normal focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition-all"
+                style={{ minHeight: 40 }}
             />
             <label
                 htmlFor={name}
@@ -440,7 +441,8 @@ export default function CheckoutPage() {
                                         value={info.notes}
                                         onChange={(e) => set("notes")(e.target.value)}
                                         placeholder={locale === "fr" ? "Instructions de livraison, etc." : "Delivery instructions, etc."}
-                                        className="input-themed w-full rounded-md resize-none"
+                                        className="w-full rounded-md border border-[var(--border)] bg-[var(--surface)] px-3 pt-5 pb-2 text-[var(--text)] text-base font-normal focus:outline-none focus:ring-2 focus:ring-[var(--primary)] resize-none transition-all"
+                                        style={{ minHeight: 40 }}
                                     />
                                 </div>
 
