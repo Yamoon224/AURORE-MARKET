@@ -259,7 +259,6 @@ body {
    ============================================= */
 .input-themed {
   background-color: var(--surface);
-  border: 1px solid var(--border);
   color: var(--text);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }

@@ -41,6 +41,7 @@ function Field({
     return (
         <div className={`relative ${className}`}>
             <input
+                id={name}
                 type={type}
                 name={name}
                 required={required}
@@ -52,7 +53,7 @@ function Field({
             />
             <label
                 htmlFor={name}
-                className="absolute left-3 top-2 text-sm text-[var(--text-light)] transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-placeholder-shown:text-[var(--text-light)] peer-focus:top-2 peer-focus:text-sm peer-focus:text-[var(--primary)]"
+                className="pointer-events-none absolute left-3 top-2 text-sm text-[var(--text-light)] transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-placeholder-shown:text-[var(--text-light)] peer-focus:top-2 peer-focus:text-sm peer-focus:text-[var(--primary)]"
             >
                 {label} {required && <span className="text-red-500">*</span>}
             </label>
