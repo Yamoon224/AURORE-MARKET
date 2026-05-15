@@ -8,19 +8,19 @@ export function buildWhatsAppMessage(order: Order, locale: string): string {
   const currency = order.currency;
 
   const header = isEn
-    ? `🛍️ *NEW ORDER* - ${order.id}`
-    : `🛍️ *NOUVELLE COMMANDE* - ${order.id}`;
+    ? `*NEW ORDER* - ${order.id}`
+    : `*NOUVELLE COMMANDE* - ${order.id}`;
 
   const date = new Date(order.createdAt).toLocaleString(
     locale === "fr" ? "fr-FR" : "en-US"
   );
 
-  const addressLine = order.customer.address ? `\n📍 ${order.customer.address}` : "";
+  const addressLine = order.customer.address ? `\nAdresse : ${order.customer.address}` : "";
   const customerSection = isEn
-    ? `\n*Customer Information:*\n👤 ${order.customer.firstName}\n📞 ${order.customer.phone}${addressLine}`
-    : `\n*Informations client :*\n👤 ${order.customer.firstName}\n📞 ${order.customer.phone}${addressLine}`;
+    ? `\n*Customer Information:*\nName : ${order.customer.firstName}\nPhone : ${order.customer.phone}${addressLine}`
+    : `\n*Informations client :*\nNom : ${order.customer.firstName}\nTel : ${order.customer.phone}${addressLine}`;
 
-  const itemsHeader = isEn ? `\n*Items Ordered:*` : `\n*Articles commandés :*`;
+  const itemsHeader = isEn ? `\n*Items Ordered:*` : `\n*Articles commandes :*`;
 
   const itemsList = order.items
     .map((item) => {
@@ -28,29 +28,22 @@ export function buildWhatsAppMessage(order: Order, locale: string): string {
         item.product.price * item.quantity,
         currency
       );
-      return `• ${item.product.title} (x${item.quantity}) - ${price}`;
+      return `- ${item.product.title} (x${item.quantity}) : ${price}`;
     })
     .join("\n");
 
   const totalLabel = isEn ? "Total" : "Total";
   const totalValue = formatCurrency(order.total, currency);
 
-  const notesSection = order.customer.notes
-    ? isEn
-      ? `\n*Notes:* ${order.customer.notes}`
-      : `\n*Notes :* ${order.customer.notes}`
-    : "";
-
   const dateLabel = isEn ? "Date" : "Date";
 
   return [
     header,
-    `📅 ${dateLabel}: ${date}`,
+    `${dateLabel} : ${date}`,
     customerSection,
     itemsHeader,
     itemsList,
-    `\n💰 *${totalLabel}: ${totalValue}*`,
-    notesSection,
+    `\n*${totalLabel} : ${totalValue}*`,
     `\n---\n_Aurore Beauty_`,
   ]
     .filter(Boolean)

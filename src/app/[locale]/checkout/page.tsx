@@ -368,7 +368,7 @@ export default function CheckoutPage() {
                                     className="input-themed"
                                 />
 
-                                <Button type="submit" fullWidth size="lg" className="bg-[var(--primary)] text-white hover:bg-[var(--primary-dark)]">
+                                <Button type="submit" fullWidth size="lg" className="mt-4 bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)]">
                                     <MessageCircle size={18} />
                                     {t("placeOrder")}
                                 </Button>
