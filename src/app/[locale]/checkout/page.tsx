@@ -15,14 +15,9 @@ import Button from "@/components/ui/Button";
 import Image from "next/image";
 import { MessageCircle, CheckCircle, ArrowLeft, Download } from "lucide-react";
 import Link from "next/link";
-import Select, { CSSObjectWithLabel } from "react-select";
 
-type OptionType = { value: string; label: string };
 
-const COUNTRIES = [
-    "Côte d'Ivoire", "Sénégal", "Mali", "Burkina Faso", "Cameroun",
-    "France", "Belgique", "Canada", "États-Unis", "Autre",
-];
+
 
 function Field({
     label,
@@ -86,6 +81,7 @@ export default function CheckoutPage() {
         zip: "",
         notes: "",
     });
+
 
     const set = (field: keyof CustomerInfo) => (value: string) =>
         setInfo((prev) => ({ ...prev, [field]: value }));
@@ -341,29 +337,18 @@ export default function CheckoutPage() {
                                     {t("customerInfo")}
                                 </h2>
 
-                                <div className="grid sm:grid-cols-2 gap-6">
-                                    <Field
-                                        label={t("firstName")}
+                                <Field
+                                        label={locale === "fr" ? "Prénom & Nom" : "Full Name"}
                                         name="firstName"
                                         required
                                         value={info.firstName}
                                         onChange={set("firstName")}
-                                        placeholder="Marie"
+                                        placeholder={locale === "fr" ? "Marie Koné" : "Marie Koné"}
                                         className="input-themed"
                                     />
-                                    <Field
-                                        label={t("lastName")}
-                                        name="lastName"
-                                        required
-                                        value={info.lastName}
-                                        onChange={set("lastName")}
-                                        placeholder="Koné"
-                                        className="input-themed"
-                                    />
-                                </div>
 
                                 <Field
-                                    label={t("phone")}
+                                    label={locale === "fr" ? "Téléphone ou WhatsApp" : "Phone or WhatsApp"}
                                     name="phone"
                                     type="tel"
                                     required
@@ -374,77 +359,13 @@ export default function CheckoutPage() {
                                 />
 
                                 <Field
-                                    label={t("email")}
-                                    name="email"
-                                    type="email"
-                                    value={info.email}
-                                    onChange={set("email")}
-                                    placeholder="marie@email.com"
-                                    className="input-themed"
-                                />
-
-                                <Field
-                                    label={t("address")}
+                                    label={locale === "fr" ? "Adresse" : "Address"}
                                     name="address"
-                                    required
                                     value={info.address}
                                     onChange={set("address")}
-                                    placeholder="Rue des Jardins, Cocody"
+                                    placeholder={locale === "fr" ? "Quartier, ville..." : "Neighborhood, city..."}
                                     className="input-themed"
                                 />
-
-                                <div className="grid sm:grid-cols-2 gap-6">
-                                    <Field
-                                        label={t("city")}
-                                        name="city"
-                                        required
-                                        value={info.city}
-                                        onChange={set("city")}
-                                        placeholder="Abidjan"
-                                        className="input-themed"
-                                    />
-                                    <Field
-                                        label={t("zip")}
-                                        name="zip"
-                                        value={info.zip}
-                                        onChange={set("zip")}
-                                        placeholder="00225"
-                                        className="input-themed"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label className="block text-sm font-medium text-[var(--text)] mb-2">
-                                        {t("country")} <span className="text-red-500">*</span>
-                                    </label>
-                                    <Select
-                                        options={COUNTRIES.map((c) => ({ value: c, label: c }))
-                                        }
-                                        value={info.country ? { value: info.country, label: info.country } : null}
-                                        onChange={(selected: OptionType | null) => set("country")(selected?.value || "")}
-                                        placeholder={`— ${t("selectCountry")} —`}
-                                        classNamePrefix="react-select"
-                                        styles={{
-                                            control: (base: CSSObjectWithLabel) => ({ ...base, minHeight: "40px" }),
-                                            menu: (base: CSSObjectWithLabel) => ({ ...base, zIndex: 10 }),
-                                        }}
-                                        isSearchable
-                                    />
-                                </div>
-
-                                <div>
-                                    <label className="block text-sm font-medium text-[var(--text)] mb-2">
-                                        {t("notes")}
-                                    </label>
-                                    <textarea
-                                        rows={4}
-                                        value={info.notes}
-                                        onChange={(e) => set("notes")(e.target.value)}
-                                        placeholder={locale === "fr" ? "Instructions de livraison, etc." : "Delivery instructions, etc."}
-                                        className="w-full rounded-md border border-[var(--border)] bg-[var(--surface)] px-3 pt-5 pb-2 text-[var(--text)] text-base font-normal focus:outline-none focus:ring-2 focus:ring-[var(--primary)] resize-none transition-all"
-                                        style={{ minHeight: 40 }}
-                                    />
-                                </div>
 
                                 <Button type="submit" fullWidth size="lg" className="bg-[var(--primary)] text-white hover:bg-[var(--primary-dark)]">
                                     <MessageCircle size={18} />
@@ -461,10 +382,9 @@ export default function CheckoutPage() {
 
                                 <div className="space-y-3 mb-8">
                                     {[
-                                        [t("firstName") + " " + t("lastName"), `${info.firstName} ${info.lastName}`],
-                                        [t("phone"), info.phone],
-                                        [t("address"), `${info.address}, ${info.city}`],
-                                        [t("country"), info.country],
+                                        [locale === "fr" ? "Nom" : "Name", info.firstName],
+                                        [locale === "fr" ? "Téléphone" : "Phone", info.phone],
+                                        ...(info.address ? [[locale === "fr" ? "Adresse" : "Address", info.address]] : []),
                                     ].map(([label, value]) => (
                                         <div key={label} className="flex gap-2 text-sm">
                                             <span className="text-[var(--text-muted)] w-32">{label}</span>
@@ -476,8 +396,8 @@ export default function CheckoutPage() {
                                 <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-900/10 border border-emerald-200 text-sm text-emerald-800 mb-6">
                                     <MessageCircle size={16} className="inline mr-2" />
                                     {locale === "fr"
-                                        ? "En confirmant, votre commande sera envoyée directement sur WhatsApp +225 59 34 38 66"
-                                        : "By confirming, your order will be sent directly on WhatsApp +225 59 34 38 66"}
+                                        ? "En confirmant, votre commande sera envoyée directement sur WhatsApp 0797878868"
+                                        : "By confirming, your order will be sent directly on WhatsApp 0797878868"}
                                 </div>
 
                                 <div className="flex gap-3">

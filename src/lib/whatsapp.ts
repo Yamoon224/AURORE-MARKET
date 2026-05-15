@@ -1,7 +1,7 @@
 import type { Order } from "@/types";
 import { formatCurrency } from "./currency";
 
-const WHATSAPP_NUMBER = "22559343866";
+const WHATSAPP_NUMBER = "2250797878868";
 
 export function buildWhatsAppMessage(order: Order, locale: string): string {
   const isEn = locale === "en";
@@ -15,9 +15,10 @@ export function buildWhatsAppMessage(order: Order, locale: string): string {
     locale === "fr" ? "fr-FR" : "en-US"
   );
 
+  const addressLine = order.customer.address ? `\n📍 ${order.customer.address}` : "";
   const customerSection = isEn
-    ? `\n*Customer Information:*\n👤 ${order.customer.firstName} ${order.customer.lastName}\n📞 ${order.customer.phone}\n📧 ${order.customer.email}\n📍 ${order.customer.address}, ${order.customer.city}, ${order.customer.zip}, ${order.customer.country}`
-    : `\n*Informations client :*\n👤 ${order.customer.firstName} ${order.customer.lastName}\n📞 ${order.customer.phone}\n📧 ${order.customer.email}\n📍 ${order.customer.address}, ${order.customer.city}, ${order.customer.zip}, ${order.customer.country}`;
+    ? `\n*Customer Information:*\n👤 ${order.customer.firstName}\n📞 ${order.customer.phone}${addressLine}`
+    : `\n*Informations client :*\n👤 ${order.customer.firstName}\n📞 ${order.customer.phone}${addressLine}`;
 
   const itemsHeader = isEn ? `\n*Items Ordered:*` : `\n*Articles commandés :*`;
 
